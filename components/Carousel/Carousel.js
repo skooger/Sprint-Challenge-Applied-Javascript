@@ -17,3 +17,52 @@
     <div class="right-button"> > </div>
   </div>
 */
+let imageNames = ['mountains.jpeg', 'computer.jpeg', 'trees.jpeg', 'turntable.jpeg']
+console.log('this file is being executed')
+
+function createCarousel(data){
+
+   //create the elements
+   const carousel = document.createElement('div'),
+        leftBtn = document.createElement('div'),
+        rightBtn = document.createElement('div')
+   let imgContainer = []
+   for(let i = 0; i < 4; i++){
+
+    imgContainer.push(document.createElement('img'))
+
+   }
+   console.log(imgContainer)
+    //set the classes 
+    carousel.classList.add('carousel')
+    leftBtn.classList.add('left-button')
+    rightBtn.classList.add('right-button')
+
+    //append the children
+    carousel.appendChild(leftBtn)
+
+    for(let i = 0; i < imgContainer.length; i++){
+
+      carousel.appendChild(imgContainer[i])
+
+    }
+
+    carousel.appendChild(rightBtn)
+
+    //set content
+    leftBtn.textContent = " < "
+    rightBtn.textContent = " > "
+    for(let i = 0; i < imgContainer.length; i++){
+
+      imgContainer[i].src = `./assets/carousel/${data[i]}`
+      console.log(imgContainer[i].src)
+    }
+
+
+    return carousel
+
+}
+
+let carouselContainer = document.querySelector('.carousel-container')
+createCarousel(imageNames)
+carouselContainer.appendChild(createCarousel(imageNames))

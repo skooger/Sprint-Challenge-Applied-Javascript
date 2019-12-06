@@ -29,7 +29,6 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
         //console.log(articles[topics[i]])
         let topicArticleList = articles[topics[i]]
         topicArticleList.forEach(element => {
-            console.log(element)
             let cardContainer = document.querySelector('.cards-container')
             cardContainer.appendChild(createCard(element))
         });
@@ -55,9 +54,9 @@ function createCard(data){
     //append the children
     card.appendChild(headline)
     card.appendChild(author)
+    author.appendChild(imgContainer)
     imgContainer.appendChild(img)
-    card.appendChild(imgContainer)
-    card.appendChild(name)
+    author.appendChild(name)
 
     //set content
     headline.textContent = data['headline']
