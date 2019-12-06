@@ -64,5 +64,4 @@ function createCarousel(data){
 }
 
 let carouselContainer = document.querySelector('.carousel-container')
-createCarousel(imageNames)
 carouselContainer.appendChild(createCarousel(imageNames))
